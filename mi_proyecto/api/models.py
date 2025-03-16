@@ -14,6 +14,7 @@ class Producto(models.Model):
     categoria = models.ForeignKey(Categoria, related_name='productos', on_delete=models.CASCADE)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     disponible = models.BooleanField(default=True)
+    #se agregar max value validator
     stock = models.IntegerField(
         validators=[MaxValueValidator(3000)],
         null=True,
